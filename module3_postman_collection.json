@@ -1,0 +1,92 @@
+{
+  "info": {
+    "name": "Travel Booking Module 3",
+    "_postman_id": "module3-travel-booking",
+    "description": "Postman collection for Booking & Payment Processing module.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Search Packages",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/packages/search?destination=bali",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "packages",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "destination",
+              "value": "bali"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Booking",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"userId\": 1, \"packageId\": 101, \"startDate\": \"2025-06-01\", \"endDate\": \"2025-06-07\", \"status\": \"CONFIRMED\", \"paymentId\": 1001}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/bookings",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "bookings"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Process Payment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"userId\": 1, \"bookingId\": 1, \"amount\": 1299.0, \"status\": \"\", \"paymentMethod\": \"Credit Card\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/payments",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "payments"
+          ]
+        }
+      }
+    }
+  ]
+}
